@@ -15,10 +15,7 @@ const server = new ApolloServer({
   ]),
   dataSources: () => ({
     launchAPI: new LaunchAPI()
-  }),
-  engine: {
-    apiKey: "service:geofftest:iNN-ouAFRHy_ifCg6zOfuQ"
-  }
+  })
 });
 
 server.listen({ port: 4001 }).then(({ url }) => {

@@ -10,7 +10,7 @@ const gateway = new ApolloGateway({
   serviceList: [
     { name: 'flights', url: 'http://localhost:4001' },
     { name: 'users', url: 'http://localhost:4002' },
-    { name: 'reviews', url: 'http://localhost:4003' }
+    { name: 'bookings', url: 'http://localhost:4003' }
   ],
   buildService({ name, url }) {
     return new RemoteGraphQLDataSource({
@@ -36,6 +36,9 @@ const gateway = new ApolloGateway({
       const users = await store.users.findOrCreate({ where: { email }});
       const user = users && users[0] ? users[0] : null;
       return { user: { ...user.dataValues } };
+    },
+    engine: {
+      apiKey: "service:geofftest:iNN-ouAFRHy_ifCg6zOfuQ"
     }
   });
   server.listen();

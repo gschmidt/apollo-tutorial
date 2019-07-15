@@ -19,9 +19,6 @@ const server = new ApolloServer({
   dataSources: () => ({
     userAPI: new UserAPI({ store })
   }),
-  engine: {
-    apiKey: "service:geofftest:iNN-ouAFRHy_ifCg6zOfuQ"
-  },
   context: async ({ req }) => {
     if (! req.headers['x-authenticated-user-id'])
       return { user: null };
