@@ -10,14 +10,13 @@ const gateway = new ApolloGateway({
   serviceList: [
     { name: 'flights', url: 'http://localhost:4001' },
     { name: 'users', url: 'http://localhost:4002' },
-//    { name: 'reviews', url: 'http://localhost:4003' }
+    { name: 'reviews', url: 'http://localhost:4003' }
   ],
   buildService({ name, url }) {
     return new RemoteGraphQLDataSource({
       url,
       willSendRequest({ request, context }) {
         if (context.user) {
-          console.log(context.user.id);
           request.http.headers.set('x-authenticated-user-id', context.user.id)
         }
       }

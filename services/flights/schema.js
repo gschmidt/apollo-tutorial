@@ -19,12 +19,11 @@ type LaunchConnection {
   launches: [Launch]!
 }
 
-type Launch {
+type Launch @key(fields: "id") {
   id: ID!
   site: String
   mission: Mission
   rocket: Rocket
-  isBooked: Boolean!
 }
 
 type Rocket {
@@ -41,17 +40,6 @@ type Mission {
 enum PatchSize {
   SMALL
   LARGE
-}
-
-extend type Mutation {
-  bookTrips(launchIds: [ID]!): TripUpdateResponse!
-  cancelTrip(launchId: ID!): TripUpdateResponse!
-}
-
-type TripUpdateResponse {
-  success: Boolean!
-  message: String
-  launches: [Launch]
 }
 `;
 

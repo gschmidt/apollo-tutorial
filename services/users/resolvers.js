@@ -13,6 +13,11 @@ const resolvers = {
       }
     }
   },
+  User: {
+    async __resolveReference(ref, { dataSources }) {
+      return await dataSources.userAPI.findUserById(ref.id);
+    },
+  }
 };
 
 module.exports = resolvers;

@@ -11,5 +11,10 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "@apollo/federation": "^0.6.10",
+    "apollo-server": "^2.6.9",
+    "graphql": "^14.4.2"
   }
 }
