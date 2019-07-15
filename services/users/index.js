@@ -7,7 +7,7 @@ const isEmail = require('isemail');
 
 const UserAPI = require('../../datasources/user');
 
-const store = createStore();
+const store = createStore('../../store.sqlite');
 
 const server = new ApolloServer({
   schema: buildFederatedSchema([
@@ -23,11 +23,14 @@ const server = new ApolloServer({
     apiKey: "service:geofftest:iNN-ouAFRHy_ifCg6zOfuQ"
   },
   context: async ({ req }) => {
-    const auth = (req.headers && req.headers.authorization) || '';
-    const email = Buffer.from(auth, 'base64').toString('ascii');
-    if (! isEmail.validate(email)) return { user: null };
-    const users = await store.users.findOrCreate({ where: { email }});
+    if (! req.headers['user-id'])
+      return { user: null };
+    console.log(JSON.stringify(req.headers['user-id']));
+    const id = parseInt(req.headers['user-id']);
+    console.log(JSON.stringify(id));
+    const users = await store.users.findOrCreate({ where: { id }});
     const user = users && users[0] ? users[0] : null;
+    console.log(user);
     return { user: { ...user.dataValues } };
   }
 });

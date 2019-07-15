@@ -8,7 +8,7 @@ const isEmail = require('isemail');
 const LaunchAPI = require('../../datasources/launch')
 const UserAPI = require('../../datasources/user')
 
-const store = createStore();
+const store = createStore('../../store.sqlite');
 
 const server = new ApolloServer({
   schema: buildFederatedSchema([
