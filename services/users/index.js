@@ -5,8 +5,7 @@ const { createStore } = require('../../utils');
 const resolvers = require('./resolvers');
 const isEmail = require('isemail');
 
-const LaunchAPI = require('../../datasources/launch')
-const UserAPI = require('../../datasources/user')
+const UserAPI = require('../../datasources/user');
 
 const store = createStore();
 
@@ -18,7 +17,6 @@ const server = new ApolloServer({
     }
   ]),
   dataSources: () => ({
-    launchAPI: new LaunchAPI(),
     userAPI: new UserAPI({ store })
   }),
   engine: {
@@ -34,6 +32,6 @@ const server = new ApolloServer({
   }
 });
 
-server.listen({ port: 4001 }).then(({ url }) => {
+server.listen({ port: 4002 }).then(({ url }) => {
   console.log(`Server ready at ${url}`);
 });

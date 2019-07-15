@@ -1,0 +1,25 @@
+{
+  "name": "container",
+  "version": "1.0.0",
+  "description": "Monument graph",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gschmidt/mnmt.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/gschmidt/mnmt/issues"
+  },
+  "homepage": "https://github.com/gschmidt/mnmt#readme",
+  "dependencies": {
+    "apollo-datasource-rest": "^0.5.1",
+    "graphql": "^14.4.2",
+    "isemail": "^3.2.0",
+    "sequelize": "^5.10.1",
+    "sqlite": "^3.0.3"
+  }
+}

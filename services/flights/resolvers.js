@@ -1,4 +1,4 @@
-const { paginateResults } = require('./utils');
+const { paginateResults } = require('../../utils');
 
 
 const resolvers = {
@@ -22,12 +22,6 @@ const resolvers = {
     },
     launch: (_, { id }, { dataSources }) =>
       dataSources.launchAPI.getLaunchById({ launchId: id })
-  },
-  Mutation: {
-    login: async (_, { email }, { dataSources }) => {
-      const user = await dataSources.userAPI.findOrCreateUser({ email });
-      if (user) return Buffer.from(email).toString('base64');
-    }
   },
   Mission: {
     missionPatch: (mission, { size } = { size: "LARGE"}) => {
