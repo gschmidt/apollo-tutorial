@@ -18,7 +18,7 @@ const gateway = new ApolloGateway({
       willSendRequest({ request, context }) {
         if (context.user) {
           console.log(context.user.id);
-          request.http.headers.set('user-id', context.user.id)
+          request.http.headers.set('x-authenticated-user-id', context.user.id)
         }
       }
     })
@@ -34,10 +34,7 @@ const gateway = new ApolloGateway({
       const auth = (req.headers && req.headers.authorization) || '';
       const email = Buffer.from(auth, 'base64').toString('ascii');
       if (! isEmail.validate(email)) return { user: null };
-      console.log(email);
-      console.log("before");
       const users = await store.users.findOrCreate({ where: { email }});
-      console.log("after");
       const user = users && users[0] ? users[0] : null;
       return { user: { ...user.dataValues } };
     }

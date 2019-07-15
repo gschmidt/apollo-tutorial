@@ -23,14 +23,11 @@ const server = new ApolloServer({
     apiKey: "service:geofftest:iNN-ouAFRHy_ifCg6zOfuQ"
   },
   context: async ({ req }) => {
-    if (! req.headers['user-id'])
+    if (! req.headers['x-authenticated-user-id'])
       return { user: null };
-    console.log(JSON.stringify(req.headers['user-id']));
-    const id = parseInt(req.headers['user-id']);
-    console.log(JSON.stringify(id));
+    const id = parseInt(req.headers['x-authenticated-user-id']);
     const users = await store.users.findOrCreate({ where: { id }});
     const user = users && users[0] ? users[0] : null;
-    console.log(user);
     return { user: { ...user.dataValues } };
   }
 });
