@@ -13,7 +13,7 @@
     "nodemon": "^1.19.1"
   },
   "dependencies": {
-    "@apollo/gateway": "^0.6.14",
+    "@apollo/gateway": "^0.7.0-alpha.13",
     "apollo-server": "^2.7.0-alpha.13",
     "graphql": "^14.4.2"
   }

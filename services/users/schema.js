@@ -7,7 +7,7 @@ type User @key(fields: "id") {
 }
 
 extend type Query {
-  # The currently logged in user
+  """The currently logged in user."""
   me: User
 }
 

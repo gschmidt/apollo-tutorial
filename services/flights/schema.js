@@ -37,6 +37,7 @@ type Mission {
   missionPatch(size: PatchSize): String
 }
 
+# Possible mission patch sizes
 enum PatchSize {
   SMALL
   LARGE
