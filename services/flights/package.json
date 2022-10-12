@@ -20,7 +20,7 @@
   "dependencies": {
     "@apollo/federation": "^0.6.10",
     "apollo-datasource-rest": "^0.5.0",
-    "apollo-server": "^2.7.0-alpha.13",
+    "apollo-server": "^2.25.4",
     "graphql": "^14.3.1",
     "isemail": "^3.2.0",
     "sequelize": "^5.10.1",
